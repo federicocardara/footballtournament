@@ -29,6 +29,13 @@ public class Tournament {
         return participants;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public LocalDate getStartsOn() {
         return startsOn;

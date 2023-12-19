@@ -3,8 +3,7 @@
  */
 package cat.uvic.teknos.footballtournament;
 
-import cat.uvic.teknos.footballtournament.teams.Team;
-import cat.uvic.teknos.footballtournament.teams.TeamPSG;
+import cat.uvic.teknos.footballtournament.teams.*;
 import cat.uvic.teknos.footballtournament.tournaments.Schedule;
 import cat.uvic.teknos.footballtournament.tournaments.Tournament;
 
@@ -17,16 +16,19 @@ public class App {
     public static void main(String[] args) {
         Tournament tournament = new Tournament();
         Schedule schedule = new Schedule();
-        Team team = new TeamPSG();
 
         tournament.setSchedule(schedule);
-        tournament.setParticipants(team);
+        tournament.setParticipants(
+                new TeamPSG(),
+                new TeamArgentina(),
+                new TeamBetis(),
+                new TeamGironaFC()
+        );
         tournament.setStartsOn(LocalDate.now());
         tournament.setEndsOn(LocalDate.now().plus(Duration.ofHours(5)));
+        tournament.setName("World tournament");
 
         tournament.printDescription();
-
-
     }
 
     private static void printTournamentStatistics(Tournament tournament) {

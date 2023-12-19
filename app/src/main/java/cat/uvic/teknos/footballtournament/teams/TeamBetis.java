@@ -1,14 +1,13 @@
 package cat.uvic.teknos.footballtournament.teams;
 
-public class TeamPSG extends Team {
+public class TeamBetis extends Team {
     @Override
     public String getName() {
-        return "Paris saint german";
+        return "Ole beti ole";
     }
 
     @Override
     public int getStrength() {
-        // manat per en pedro sanchez.
-        return 4;
+        return 2;
     }
 }

@@ -3,6 +3,7 @@
  */
 package cat.uvic.teknos.footballtournament;
 
+import cat.uvic.teknos.footballtournament.emulators.TournamentEmulator;
 import cat.uvic.teknos.footballtournament.teams.*;
 import cat.uvic.teknos.footballtournament.tournaments.Match;
 import cat.uvic.teknos.footballtournament.tournaments.Round;
@@ -41,6 +42,10 @@ public class App {
         tournament.setName("World tournament");
 
         tournament.printDescription();
+
+        TournamentEmulator.play(tournament);
+        printTournamentStatistics(tournament);
+        
     }
 
     private static void printTournamentStatistics(Tournament tournament) {

@@ -4,6 +4,8 @@
 package cat.uvic.teknos.footballtournament;
 
 import cat.uvic.teknos.footballtournament.teams.*;
+import cat.uvic.teknos.footballtournament.tournaments.Match;
+import cat.uvic.teknos.footballtournament.tournaments.Round;
 import cat.uvic.teknos.footballtournament.tournaments.Schedule;
 import cat.uvic.teknos.footballtournament.tournaments.Tournament;
 
@@ -17,15 +19,25 @@ public class App {
         Tournament tournament = new Tournament();
         Schedule schedule = new Schedule();
 
+        TeamPSG psg = new TeamPSG();
+        TeamArgentina arg = new TeamArgentina();
+        TeamBetis bet = new TeamBetis();
+        TeamGironaFC gir = new TeamGironaFC();
+
+        Round round = new Round();
+        for (int i = 0; i < 24; i++) {
+            round.addMatch(new Match(
+                    i % 2 == 0 ? psg : arg,
+                    i % 2 == 0 ? bet : gir,
+                    LocalDate.now().plusDays(i)
+                    ));
+        }
+        schedule.addRound(round);
+
         tournament.setSchedule(schedule);
-        tournament.setParticipants(
-                new TeamPSG(),
-                new TeamArgentina(),
-                new TeamBetis(),
-                new TeamGironaFC()
-        );
+        tournament.setParticipants(psg, arg, bet, gir);
         tournament.setStartsOn(LocalDate.now());
-        tournament.setEndsOn(LocalDate.now().plus(Duration.ofHours(5)));
+        tournament.setEndsOn(LocalDate.now().plus(Duration.ofDays(365)));
         tournament.setName("World tournament");
 
         tournament.printDescription();

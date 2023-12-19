@@ -3,12 +3,19 @@
  */
 package cat.uvic.teknos.footballtournament;
 
+import cat.uvic.teknos.footballtournament.tournaments.Tournament;
+
+import java.util.Arrays;;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+    public static void main(String[] args) {
+        
+
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    private static void printTournamentStatistics(Tournament tournament) {
+        Arrays.stream(tournament.getParticipants())
+            .sorted((t1, t2) -> ((Integer)t1.getPoints()).compareTo(t2.getPoints()))
+            .forEach((t) -> t.printStatistics());
     }
 }

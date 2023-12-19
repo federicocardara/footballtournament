@@ -1,3 +1,3 @@
-## Footbal tournament
+## Football tournament
 
-by <write down your name here>
+by Esteve Autet Alexe

@@ -1,6 +1,7 @@
 package cat.uvic.teknos.footballtournament.tournaments;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import cat.uvic.teknos.footballtournament.teams.Team;
 
@@ -29,5 +30,30 @@ public class Tournament {
     }
 
 
-    //TODO: create getters and setters
+    public LocalDate getStartsOn() {
+        return startsOn;
+    }
+
+    public void setStartsOn(LocalDate startsOn) {
+        this.startsOn = startsOn;
+    }
+
+    public LocalDate getEndsOn() {
+        return endsOn;
+    }
+
+    public void setEndsOn(LocalDate endsOn) {
+        this.endsOn = endsOn;
+    }
+
+    public void printDescription() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+
+        System.out.printf(
+                "Tournament %s starts on %s and ends on %s%n",
+                name,
+                getStartsOn().format(formatter),
+                getEndsOn().format(formatter)
+        );
+    }
 }

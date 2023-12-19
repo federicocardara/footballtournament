@@ -3,19 +3,35 @@
  */
 package cat.uvic.teknos.footballtournament;
 
+import cat.uvic.teknos.footballtournament.teams.Team;
+import cat.uvic.teknos.footballtournament.teams.TeamPSG;
+import cat.uvic.teknos.footballtournament.tournaments.Schedule;
 import cat.uvic.teknos.footballtournament.tournaments.Tournament;
 
-import java.util.Arrays;;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Comparator;;
 
 public class App {
     public static void main(String[] args) {
-        
+        Tournament tournament = new Tournament();
+        Schedule schedule = new Schedule();
+        Team team = new TeamPSG();
+
+        tournament.setSchedule(schedule);
+        tournament.setParticipants(team);
+        tournament.setStartsOn(LocalDate.now());
+        tournament.setEndsOn(LocalDate.now().plus(Duration.ofHours(5)));
+
+        tournament.printDescription();
+
 
     }
 
     private static void printTournamentStatistics(Tournament tournament) {
         Arrays.stream(tournament.getParticipants())
-            .sorted((t1, t2) -> ((Integer)t1.getPoints()).compareTo(t2.getPoints()))
-            .forEach((t) -> t.printStatistics());
+            .sorted(Comparator.comparingInt(Team::getPoints))
+            .forEach(Team::printStatistics);
     }
 }

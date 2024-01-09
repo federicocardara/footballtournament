@@ -21,7 +21,7 @@ public class MatchEmulator {
         match.getFirstChallenger().addGoals(firstChallengerGoals);
         match.getSecondChallenger().addGoals(secondChallengerGoals);
         match.getFirstChallenger().addPoints(statistics.getFirstChallengerPoints());
-        match.getFirstChallenger().addGoals(statistics.getSecondChallengerPoints());
+        match.getSecondChallenger().addPoints(statistics.getSecondChallengerPoints());
 
         // TODO: update here the team attributes goalsConceded, matchesWon, matchesLost and matchesDrawn 
         

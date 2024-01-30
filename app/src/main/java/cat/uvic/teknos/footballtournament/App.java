@@ -5,7 +5,7 @@ package cat.uvic.teknos.footballtournament;
 
 import cat.uvic.teknos.footballtournament.tournaments.Tournament;
 
-import java.util.Arrays;;
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
